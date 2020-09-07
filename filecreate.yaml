@@ -1,0 +1,16 @@
+- name: Playbook Sample
+  hosts: all
+  become: true
+  tasks:
+    - name: ファル(/tmp/hoge.txt)を作成する
+      file:
+        path: /tmp/hoge.txt
+        state: touch
+
+    - name: ファル(/tmp/hoge.txt)の属性を操作する
+      file:
+        path: /tmp/hoge.txt
+        state: file
+        owner: bin
+        group: bin
+        mode: "u=rwx,g=rx,o=rx"
