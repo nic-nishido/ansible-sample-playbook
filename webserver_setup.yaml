@@ -11,6 +11,10 @@
       yum:
         name: wget
         state: latest
+    - name: Installation bc
+      yum:
+        name: bc
+        state: latest
     - name: Installation git command
       yum:
         name: git
