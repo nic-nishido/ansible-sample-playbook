@@ -23,14 +23,6 @@
       service:
         name: httpd
         state: started
-    - name: Firewall Setup - allow http port
-      firewalld:
-        zone: public
-        service: "{{ item }}"
-        permanent: yes
-        state: enabled
-      with_items:
-      - http
     - name: Installation epel-release
       yum:
         name: epel-release
