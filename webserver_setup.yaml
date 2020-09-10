@@ -43,8 +43,8 @@
     - name: mkdir mcmagent in /tmp
       file: path=/tmp/mcmagent state=directory owner=root group=root mode=0755
     - name: MCM Agent Module Download
-      command: wget http://10.113.1.98/module/cp4mcm_Agents_xlinux_2.0.tar.gz -P /tmp/mcmagent
+      command: wget http://10.113.1.98/module/cp4mcm_Agents_xlinux_2.0.tar.gz -P /tmp/mcmagent command_warnings=False
     - name: MCM Agent Setting File Download
-      command: wget http://10.113.1.98/module/APPMGT_silent_install_web.txt -P /tmp/mcmagent
+      command: wget http://10.113.1.98/module/APPMGT_silent_install_web.txt -P /tmp/mcmagent command_warnings=False
     - name: unarchive source
       command: tar zxvf /tmp/mcmagent/cp4mcm_Agents_xlinux_2.0.tar.gz chdir=/tmp/mcmagent
