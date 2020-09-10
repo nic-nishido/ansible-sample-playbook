@@ -17,7 +17,7 @@
         state: latest
     - name: Get http document from Git
       git:
-        repo: "https://github.com/nic-nishido/test-htdoc"
+        repo: "https://github.com/masa03m/webinar01.git"
         dest: "/var/www/html"
     - name: Start service httpd
       service:
