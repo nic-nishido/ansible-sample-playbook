@@ -40,6 +40,9 @@
           - clamd
     - name: ClamAV Pattern File Update
       shell: freshclam
+    - name: rm mcmagent dirctory
+      file: path=/tmp/mcmagent state=absent
+      state: absent
     - name: mkdir mcmagent in /tmp
       file: path=/tmp/mcmagent state=directory owner=root group=root mode=0755
     - name: MCM Agent Module Download
