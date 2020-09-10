@@ -41,7 +41,6 @@
     - name: ClamAV Pattern File Update
       shell: freshclam
     - name: MCM Agent Module Download
-      get_url: url="http://18.182.147.125/module/cp4mcm_Agents_xlinux_2.0.tar.gz" dest=/tmp
-      timeout: 600
+      get_url: url="http://18.182.147.125/module/cp4mcm_Agents_xlinux_2.0.tar.gz" dest=/tmp timeout=600
     - name: MCM Agent Setting File Download
       get_url: url="http://18.182.147.125/module/APPMGT_silent_install.txt" dest=/tmp
