@@ -1,0 +1,49 @@
+-
+  name: Webserver Setup
+  hosts: all
+  tasks:
+    - name: Installation Apache
+      yum:
+        name: httpd
+        state: latest
+    - name: Installation wget command
+      yum:
+        name: wget
+        state: latest
+    - name: Installation git command
+      yum:
+        name: git
+        state: latest
+    - name: Get http document from Git
+      git:
+        repo: "https://github.com/nic-nishido/test-htdoc"
+        dest: "/var/www/html"
+    - name: Start service httpd
+      service:
+        name: httpd
+        state: started
+    - name: Firewall Setup - allow http port
+      firewalld:
+        zone: public
+        service: "{{ item }}"
+        permanent: yes
+        state: enabled
+      with_items:
+      - http
+    - name: Installation epel-release
+      yum:
+        name: epel-release
+        state: latest
+    - name: Installation ClamAV
+      yum:
+        name: "{{ packages }}"
+      vars:
+        packages:
+          - clamav
+          - clamav-data
+          - clamav-devel
+          - clamav-filesystem
+          - clamav-update
+          - clamd
+    - name: ClamAV Pattern File Update
+      shell: freshclam
