@@ -60,4 +60,4 @@
         dest: /tmp/mcmagent
         mode: '0755'  
     - name: Installation cp4mcm_agent
-      command: /tmp/mcmagent/APPMGT_XLINUX_Agent_Install_2020.2.0/mcmagent-install.sh
+      command: /tmp/mcmagent/mcmagent-install.sh
