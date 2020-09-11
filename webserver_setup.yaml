@@ -54,5 +54,10 @@
       command: wget http://10.113.1.98/module/APPMGT_silent_install_web.txt -P /tmp/mcmagent
     - name: unarchive installation module
       command: tar zxvf /tmp/mcmagent/cp4mcm_Agents_xlinux_2.0.tar.gz chdir=/tmp/mcmagent
+    - name: MCM Agent install shell Download
+        get_url:
+          url: wget http://10.113.1.98/module/APPMGT_silent_install_web.txt
+          dest: /tmp/mcmagent
+          mode: '0755'  
     - name: Installation cp4mcm_agent
-      command: /tmp/mcmagent/APPMGT_XLINUX_Agent_Install_2020.2.0/installAPMAgents.sh -p /tmp/mcmagent/APPMGT_silent_install_web.txt
+      command: /tmp/mcmagent/APPMGT_XLINUX_Agent_Install_2020.2.0/mcmagent-install.sh
